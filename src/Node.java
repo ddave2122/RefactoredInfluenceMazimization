@@ -4,7 +4,7 @@ public class Node implements Comparable<Node>{
 
     private int vertexNumber;
     private Hashtable<Integer, Double> vertexNeighbors;  //Represents neighbors
-    private Hashtable<Long, Float> pastInfluences;  //Represents previous influence attempts
+    private Hashtable<Long, Double> pastInfluences;  //Represents previous influence attempts
     private long lastInfluenceTime;
     private double simplePastInfluences;
     private boolean isActive;
@@ -37,7 +37,7 @@ public class Node implements Comparable<Node>{
         return simplePastInfluences;
     }
 
-    public void setSimplePastInfluences(float simplePastInfluences) {
+    public void setSimplePastInfluences(double simplePastInfluences) {
         this.simplePastInfluences = simplePastInfluences;
     }
 
@@ -57,11 +57,11 @@ public class Node implements Comparable<Node>{
         this.vertexNeighbors = vertexNeighbors;
     }
 
-    public Hashtable<Long, Float> getPastInfluences() {
+    public Hashtable<Long, Double> getPastInfluences() {
         return pastInfluences;
     }
 
-    public void setPastInfluences(Hashtable<Long, Float> pastInfluences) {
+    public void setPastInfluences(Hashtable<Long, Double> pastInfluences) {
         this.pastInfluences = pastInfluences;
     }
 

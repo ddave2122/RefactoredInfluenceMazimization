@@ -3,9 +3,6 @@ import java.util.LinkedList;
 
 public class Util {
 
-    private final boolean useSimpleInfluence = true;
-
-
     //The array should be sorted by node number at this point
     public Node[] convertStringArrayToNodeArray(String[] arrayToConvert)
     {
@@ -33,34 +30,6 @@ public class Util {
             nodeList.add(new Node(vertexNumber, neighbors));
         }
         return nodeList.toArray(new Node[nodeList.size()]);
-    }
-
-    public double calculateInfluence(Node nodeToInfluence, double currentInfluence, long currentTime)
-    {
-        if(useSimpleInfluence)
-        {
-            long lastInfluenceTime = nodeToInfluence.getLastInfluenceTime();
-            double pastInfluence = nodeToInfluence.getSimplePastInfluences();
-
-            if (nodeToInfluence.isActive()) {
-                System.out.println("Node " + nodeToInfluence.getVertexNumber() + " is already active!");
-                return -1;
-            }
-
-            double newInfluence = (1/(currentTime - lastInfluenceTime))*pastInfluence + currentInfluence;
-
-            return newInfluence;
-
-        }
-    return -1;
-    }
-
-    public boolean attemptInfluence(Node nodeToInfluence, double currentInfluence, long currentTime)
-    {
-        double newInfluence = calculateInfluence(nodeToInfluence, currentInfluence, currentTime);
-
-        return (newInfluence >= Math.random());
-
     }
 
 
